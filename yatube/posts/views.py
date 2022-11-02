@@ -1,15 +1,28 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Главная страница Django')
+    template = 'index.html'
+    title = 'Главня страница'
+    text = 'Это главная страница проекта Yatube',
+    # Словарь с данными принято называть context
+    context = {
+        'title': title,
+        'text': text
+    }
+    # Третьим параметром передаём словарь context
+    return render(request, template, context)
 
 
-def group_posts(request, slug):
-    return HttpResponse(f'И зачем эта страница {slug}?')
-
-
-# В урл мы ждем парметр, и нужно его прередать в функцию для использования
-# def ice_cream_detail(request, pk):
-#    return HttpResponse(f'Мороженое номер {pk}')
+def group_list(request, template):
+    template = 'posts/group_list.html'
+    title = 'Группы'
+    text = 'Здесь будет информация о группах проекта Yatube',
+    # Словарь с данными принято называть context
+    context = {
+        'title': title,
+        'text': text
+    }
+    # Третьим параметром передаём словарь context
+    return render(request, template, context)
