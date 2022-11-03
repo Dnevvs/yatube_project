@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 def index(request):
     template = 'index.html'
-    title = 'Главня страница'
+    title = 'Главная страница'
     text = 'Это главная страница проекта Yatube',
     # Словарь с данными принято называть context
     context = {
@@ -15,7 +15,8 @@ def index(request):
     return render(request, template, context)
 
 
-def group_list(request, template):
+def group_list(request):
+    # , template):
     template = 'posts/group_list.html'
     title = 'Группы'
     text = 'Здесь будет информация о группах проекта Yatube',
