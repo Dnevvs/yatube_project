@@ -20,6 +20,6 @@ from posts import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('', include('posts.urls', namespace='group_list')),
+    path('', include('posts.urls', namespace='posts')),
     path('admin/', admin.site.urls),
 ]
